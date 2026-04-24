@@ -1,0 +1,568 @@
+/* ===== Base Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Theme Variables ===== */
+:root {
+    --bg-color: #fdf6ec;
+    --section-bg: #f5e6d3;
+    --text-color: #222;
+    --heading-color: #111827;
+    --card-bg: #ffffff;
+    --surface-light: #ffffff;
+    --muted-text: #4b5563;
+    --btn-bg: #111827;
+    --btn-hover: #374151;
+    --border-color: #d1d5db;
+    --success-color: #166534;
+    --error-color: #b91c1c;
+    --nav-bg: #111827;
+    --dark-surface: #111827;
+    --dark-card: #1f2937;
+    --dark-muted-bg: #374151;
+    --dark-border-strong: #4b5563;
+}
+
+body.dark-mode {
+    --bg-color: #111827;
+    --section-bg: #1f2937;
+    --text-color: #f9fafb;
+    --heading-color: #f9fafb;
+    --card-bg: #1f2937;
+    --muted-text: #d1d5db;
+    --btn-bg: #f9fafb;
+    --btn-hover: #d1d5db;
+    --border-color: #374151;
+}
+
+/* ===== Global Styles ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--bg-color);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: var(--heading-color);
+}
+
+.section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.section-note {
+    margin-bottom: 15px;
+    color: var(--muted-text);
+    font-size: 0.95rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ===== Header ===== */
+.header {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--section-bg);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.greeting {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #7c3f00;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.timer-text {
+    margin-top: 18px;
+    font-weight: 600;
+}
+
+.visitor-box {
+    max-width: 500px;
+    margin: 25px auto 0;
+    text-align: left;
+}
+
+.small-card {
+    padding: 18px;
+}
+
+.visitor-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.visitor-row input {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* ===== Shared Form Controls ===== */
+.visitor-row input,
+.form-group input,
+.form-group textarea,
+.sort-box select {
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font: inherit;
+    background: var(--surface-light);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+}
+
+body.dark-mode .visitor-row input,
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea,
+body.dark-mode .sort-box select {
+    background: var(--dark-surface);
+    color: #f9fafb;
+}
+
+.visitor-row input:focus,
+.form-group input:focus,
+.form-group textarea:focus,
+.sort-box select:focus {
+    outline: none;
+    border-color: #111827;
+}
+
+.visitor-message,
+.form-message,
+.repo-status,
+.empty-message {
+    font-weight: 600;
+}
+
+.visitor-message {
+    margin-top: 10px;
+}
+
+.form-message,
+.repo-status {
+    margin-top: 15px;
+}
+
+.empty-message {
+    margin-top: 20px;
+    color: var(--error-color);
+}
+
+/* ===== Buttons ===== */
+.btn,
+.filter-btn {
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 18px;
+    background: var(--btn-bg);
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+}
+
+.btn:hover {
+    background: var(--btn-hover);
+    transform: translateY(-2px);
+}
+
+body.dark-mode .btn {
+    color: #111827;
+}
+
+.secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    background: var(--surface-light);
+    color: #111827;
+    border: 1px solid var(--border-color);
+}
+
+.secondary-btn:hover {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+body.dark-mode .secondary-btn {
+    background: var(--dark-muted-bg);
+    color: #f9fafb;
+    border: 1px solid var(--dark-border-strong);
+}
+
+body.dark-mode .secondary-btn:hover {
+    background: var(--dark-border-strong);
+    color: #f9fafb;
+}
+
+.small-btn {
+    margin-top: 0;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    padding: 15px 20px;
+    background: var(--nav-bg);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar a {
+    padding: 8px 10px;
+    border-radius: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.navbar a:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== Card Components ===== */
+.card,
+.contact-form {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card {
+    padding: 20px;
+}
+
+.contact-form {
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== Controls ===== */
+.controls-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 16px;
+    border: 1px solid var(--border-color);
+    background: var(--surface-light);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #111827;
+    color: #ffffff;
+}
+
+.filter-btn.active {
+    border-color: #111827;
+}
+
+body.dark-mode .filter-btn {
+    background: var(--dark-surface);
+    color: #f9fafb;
+}
+
+.sort-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ===== Content Grids ===== */
+.projects-container,
+.courses-container,
+.repos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.project-card h3,
+.repos-container h3 {
+    margin-bottom: 10px;
+    color: var(--heading-color);
+}
+
+.project-card p,
+.repos-container p {
+    color: var(--muted-text);
+}
+
+.project-image {
+    display: block;
+    width: 100%;
+    height: 180px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    object-fit: cover;
+    vertical-align: middle;
+}
+
+/* ===== GitHub Section ===== */
+.repo-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.repo-link:hover {
+    text-decoration: underline;
+}
+
+/* ===== Contact Section ===== */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+.contact-info p {
+    margin-bottom: 8px;
+}
+
+.contact-info a {
+    color: var(--heading-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* ===== Footer ===== */
+footer {
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    background: var(--section-bg);
+    border-top: 1px solid #e5e7eb;
+}
+
+/* ===== Animation ===== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .header {
+        padding: 40px 15px;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .navbar a {
+        text-align: center;
+    }
+
+    .section {
+        padding: 35px 15px;
+    }
+
+    .filter-buttons {
+        justify-content: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 220px;
+    }
+
+    .controls-row {
+        align-items: stretch;
+    }
+
+    .sort-box {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sort-box select {
+        width: 100%;
+    }
+}
+
+/* ===== Skills Dashboard ===== */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.skill-card h3 {
+    margin-bottom: 12px;
+    color: var(--heading-color);
+}
+
+.skill-bar {
+    width: 100%;
+    height: 12px;
+    background: var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.skill-fill {
+    width: 0;
+    height: 100%;
+    background: var(--btn-bg);
+    border-radius: 20px;
+    transition: width 1s ease;
+}
+
+body.dark-mode .skill-fill {
+    background: #f9fafb;
+}
+
+.skill-card span {
+    font-weight: 600;
+    color: var(--muted-text);
+}
+
+/* ===== Back To Top Button ===== */
+.top-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: var(--btn-bg);
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    transition: background 0.3s ease, transform 0.3s ease;
+    z-index: 20;
+}
+
+.top-btn:hover {
+    background: var(--btn-hover);
+    transform: translateY(-3px);
+}
+
+body.dark-mode .top-btn {
+    color: #111827;
+}
+
+/* ===== Footer Polish ===== */
+footer p {
+    color: var(--text-color);
+}
+
+/* ===== Assignment 4 Responsive Additions ===== */
+@media (max-width: 600px) {
+    .top-btn {
+        right: 15px;
+        bottom: 15px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+}

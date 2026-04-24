@@ -1,0 +1,26 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# VS Code Settings
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment Files
+.env
+
+# Temporary Files
+*.tmp
+*.temp
+
+# Build / Coverage
+dist/
+build/
+coverage/
+
+# Mac Files
+.AppleDouble
+.LSOverride
