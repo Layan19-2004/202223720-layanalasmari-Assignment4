@@ -12,11 +12,7 @@ The goal of this project is to demonstrate front-end web development skills usin
 
 ## Live Website
 
-(Add your GitHub Pages / Netlify link here)
-
-Example:
-
-https://yourusername.github.io/assignment4/
+https://layan19-2004.github.io/202223720-layanalasmari-Assignment4/
 
 ---
 
